@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <!-- <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script> Replaced with one mentioned at https://github.com/tensorflow/tfjs-models/tree/master/mobilenet-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"></script>
+    <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Image Classifier</a>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="video.html">Predict Live Image <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" onclick="message()">Help</button>
+        </div>
+    </nav>
+    <!-- Main Body Content -->
+    <div class="container">
+        <div id="console"></div>
+        <!-- Add an live image that we will use to test -->
+        <div class="container">
+            <video autoplay playsinline muted id="webcam" width="256" height="256"></video>
+            <button type="button" id="class-a">Add First Sample</button>
+            <button type="button" id="class-b">Add Second Sample</button>
+            <button type="button" id="class-c">Add Third Sample</button>
+            <br>
+            <button type="button" id="taskstatus" onclick="stoprecording(getElementById('webcam'))"
+                style="display:none;">Stop Prediction</button>
+        </div>
+        <!-- Load index.js after the content of the page -->
+        <script src="js/video.js"></script>
+    </div>
+</body>
+
+</html>
